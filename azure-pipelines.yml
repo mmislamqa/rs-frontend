@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool: 'AWS'
+
+steps:
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      mkdir publish
+      mv static *.conf publish
+      cd publish
+      az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --project="DevOps48" --scope project --feed RoboShop --name  $(appName) --version 1.0.$(Build.BuildId) --description "$(appName)" --path .
+  displayName: Publish Artifacts
+
+variables:
+  appName: "frontend"
