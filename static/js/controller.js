@@ -504,7 +504,7 @@
         };
 
         $scope.register = function() {
-            $scope.data.message = '';
+            $scope.data.Welcomemessage = '';
             $scope.data.name = $scope.data.name.trim();
             $scope.data.email = $scope.data.email.trim();
             $scope.data.password = $scope.data.password.trim();
