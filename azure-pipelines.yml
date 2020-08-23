@@ -25,7 +25,7 @@ steps:
       sed -e "s/BUILDNO/$(Build.BuildId)/" ../k8s/deployment.yml >deployment.yml
       sed -e "s/BUILDNO/$(Build.BuildId)/" ../k8s/service.yml >service.yml
       env
-      find .
+      pwd
   displayName: Update Kubernetes
 
 - task: PublishBuildArtifacts@1
