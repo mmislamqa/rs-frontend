@@ -5,18 +5,18 @@ metadata:
   labels:
     app: roboshop
     tier: frontend
-    build: BUILDNO
+    build: "BUILDNO"
 spec:
   replicas: 1
   selector:
     matchLabels:
       tier: frontend
-      build: BUILDNO
+      build: "BUILDNO"
   template:
     metadata:
       labels:
         tier: frontend
-        build: BUILDNO
+        build: "BUILDNO"
     spec:
       containers:
         - name: frontend
