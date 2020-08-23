@@ -17,6 +17,14 @@ steps:
       docker push rkalluru/b48-$(appName):$(Build.BuildId)
   displayName: Docker Build Push
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      mkdir output
+      cd output
+      sed -e "s/BUILDNO/$(Build.BuildId)/" ../k9s/deployment.yml 
+  displayName: Update Kubernetes
+
 #- task: CmdLine@2
 #  inputs:
 #    script: |
