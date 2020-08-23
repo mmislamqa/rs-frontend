@@ -25,6 +25,12 @@ steps:
       sed -e "s/BUILDNO/$(Build.BuildId)/" ../k8s/deployment.yml
   displayName: Update Kubernetes
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/output'
+    ArtifactName: 'k8s-ouptuts'
+    publishLocation: 'Container'
+
 #- task: CmdLine@2
 #  inputs:
 #    script: |
