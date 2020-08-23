@@ -13,8 +13,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      docker build -t rkalluru/b48-$(appName) .
-      docker push rkalluru/b48-$(appName)
+      docker build -t rkalluru/b48-$(appName):$(Build.BuildId) .
+      docker push rkalluru/b48-$(appName):$(Build.BuildId)
   displayName: Docker Build Push
 
 #- task: CmdLine@2
