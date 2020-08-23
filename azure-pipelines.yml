@@ -22,12 +22,15 @@ steps:
     script: |
       mkdir output
       cd output
-      sed -e "s/BUILDNO/$(Build.BuildId)/" ../k8s/deployment.yml
+      sed -e "s/BUILDNO/$(Build.BuildId)/" ../k8s/deployment.yml >deployment.yml
+      sed -e "s/BUILDNO/$(Build.BuildId)/" ../k8s/service.yml >service.yml
+      env
+      find .
   displayName: Update Kubernetes
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/output'
+    PathtoPublish: '$(Build.StagingDirectory)/output'
     ArtifactName: 'k8s-ouptuts'
     publishLocation: 'Container'
 
