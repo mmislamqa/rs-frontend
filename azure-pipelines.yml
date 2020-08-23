@@ -22,7 +22,7 @@ steps:
     script: |
       mkdir output
       cd output
-      sed -e "s/BUILDNO/$(Build.BuildId)/" ../k9s/deployment.yml 
+      sed -e "s/BUILDNO/$(Build.BuildId)/" ../k8s/deployment.yml
   displayName: Update Kubernetes
 
 #- task: CmdLine@2
